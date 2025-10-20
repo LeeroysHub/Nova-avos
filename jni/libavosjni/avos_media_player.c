@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -263,7 +263,7 @@ register_avosmediaplayer(JNIEnv *env)
 {
     jclass clazz;
 
-    clazz = (*env)->FindClass(env, "com/archos/medialib/AvosMediaPlayer");
+    clazz = (*env)->FindClass(env, "org/leeroy/medialib/AvosMediaPlayer");
     if (!clazz)
         return -1;
     mp_fields.handle = (*env)->GetFieldID(env, clazz, "mMediaPlayerHandle", "J");
@@ -284,7 +284,7 @@ unregister_avosmediaplayer(JNIEnv *env)
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_create(JNIEnv *env, jobject thiz, jobject weak_thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_create(JNIEnv *env, jobject thiz, jobject weak_thiz)
 {
     void *surface;
     const char *err_msg = NULL;
@@ -331,7 +331,7 @@ free_native_window(JNIEnv *env, jobject thiz)
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setVideoSurface(JNIEnv *env, jobject thiz, jobject jsurface)
+Java_org_leeroy_medialib_AvosMediaPlayer_setVideoSurface(JNIEnv *env, jobject thiz, jobject jsurface)
 {
     int ret;
     void *surface;
@@ -361,7 +361,7 @@ err:
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_nativeRelease(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_nativeRelease(JNIEnv *env, jobject thiz)
 {
     event_ctx_t *event_ctx;
     avos_mp_t *mp = get_mp(env, thiz);
@@ -381,7 +381,7 @@ Java_com_archos_medialib_AvosMediaPlayer_nativeRelease(JNIEnv *env, jobject thiz
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_nativeReset(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_nativeReset(JNIEnv *env, jobject thiz)
 {
     avos_mp_t *mp;
     void *priv = NULL;
@@ -482,7 +482,7 @@ err:
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setDataSource(JNIEnv *env, jobject thiz, jstring path, jobjectArray keys, jobjectArray values)
+Java_org_leeroy_medialib_AvosMediaPlayer_setDataSource(JNIEnv *env, jobject thiz, jstring path, jobjectArray keys, jobjectArray values)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp)
@@ -511,7 +511,7 @@ Java_com_archos_medialib_AvosMediaPlayer_setDataSource(JNIEnv *env, jobject thiz
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setDataSourceFD(JNIEnv *env, jobject thiz, jobject fileDescriptor, jlong offset, jlong length)
+Java_org_leeroy_medialib_AvosMediaPlayer_setDataSourceFD(JNIEnv *env, jobject thiz, jobject fileDescriptor, jlong offset, jlong length)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp)
@@ -526,7 +526,7 @@ Java_com_archos_medialib_AvosMediaPlayer_setDataSourceFD(JNIEnv *env, jobject th
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_prepareAsync(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_prepareAsync(JNIEnv *env, jobject thiz)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -534,7 +534,7 @@ Java_com_archos_medialib_AvosMediaPlayer_prepareAsync(JNIEnv *env, jobject thiz)
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_prepare(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_prepare(JNIEnv *env, jobject thiz)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -542,7 +542,7 @@ Java_com_archos_medialib_AvosMediaPlayer_prepare(JNIEnv *env, jobject thiz)
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_nativeStart(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_nativeStart(JNIEnv *env, jobject thiz)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -550,7 +550,7 @@ Java_com_archos_medialib_AvosMediaPlayer_nativeStart(JNIEnv *env, jobject thiz)
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_nativeStop(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_nativeStop(JNIEnv *env, jobject thiz)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -558,7 +558,7 @@ Java_com_archos_medialib_AvosMediaPlayer_nativeStop(JNIEnv *env, jobject thiz)
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_nativePause(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_nativePause(JNIEnv *env, jobject thiz)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -566,7 +566,7 @@ Java_com_archos_medialib_AvosMediaPlayer_nativePause(JNIEnv *env, jobject thiz)
 }
 
 jboolean
-Java_com_archos_medialib_AvosMediaPlayer_isPlaying(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_isPlaying(JNIEnv *env, jobject thiz)
 {
     int ret = 0;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
@@ -576,7 +576,7 @@ Java_com_archos_medialib_AvosMediaPlayer_isPlaying(JNIEnv *env, jobject thiz)
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_seekTo(JNIEnv *env, jobject thiz, int msec)
+Java_org_leeroy_medialib_AvosMediaPlayer_seekTo(JNIEnv *env, jobject thiz, int msec)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -584,7 +584,7 @@ Java_com_archos_medialib_AvosMediaPlayer_seekTo(JNIEnv *env, jobject thiz, int m
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_nativeSetStartTime(JNIEnv *env, jobject thiz, int msec)
+Java_org_leeroy_medialib_AvosMediaPlayer_nativeSetStartTime(JNIEnv *env, jobject thiz, int msec)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -592,7 +592,7 @@ Java_com_archos_medialib_AvosMediaPlayer_nativeSetStartTime(JNIEnv *env, jobject
 }
 
 int
-Java_com_archos_medialib_AvosMediaPlayer_getCurrentPosition(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_getCurrentPosition(JNIEnv *env, jobject thiz)
 {
     uint32_t ret = 0;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
@@ -602,7 +602,7 @@ Java_com_archos_medialib_AvosMediaPlayer_getCurrentPosition(JNIEnv *env, jobject
 }
 
 int
-Java_com_archos_medialib_AvosMediaPlayer_getBufferPosition(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_getBufferPosition(JNIEnv *env, jobject thiz)
 {
     uint32_t ret = 0;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
@@ -612,7 +612,7 @@ Java_com_archos_medialib_AvosMediaPlayer_getBufferPosition(JNIEnv *env, jobject 
 }
 
 int
-Java_com_archos_medialib_AvosMediaPlayer_getRelativePosition(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_getRelativePosition(JNIEnv *env, jobject thiz)
 {
     uint32_t ret = 0;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
@@ -622,7 +622,7 @@ Java_com_archos_medialib_AvosMediaPlayer_getRelativePosition(JNIEnv *env, jobjec
 }
 
 int
-Java_com_archos_medialib_AvosMediaPlayer_getDuration(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_getDuration(JNIEnv *env, jobject thiz)
 {
     uint32_t ret = 0;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
@@ -632,7 +632,7 @@ Java_com_archos_medialib_AvosMediaPlayer_getDuration(JNIEnv *env, jobject thiz)
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setLooping(JNIEnv *env, jobject thiz, jboolean looping)
+Java_org_leeroy_medialib_AvosMediaPlayer_setLooping(JNIEnv *env, jobject thiz, jboolean looping)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -640,7 +640,7 @@ Java_com_archos_medialib_AvosMediaPlayer_setLooping(JNIEnv *env, jobject thiz, j
 }
 
 jboolean
-Java_com_archos_medialib_AvosMediaPlayer_isLooping(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_isLooping(JNIEnv *env, jobject thiz)
 {
     int ret = 0;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
@@ -650,13 +650,13 @@ Java_com_archos_medialib_AvosMediaPlayer_isLooping(JNIEnv *env, jobject thiz)
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setVolume(JNIEnv *env, jobject thiz, float leftVolume, float rightVolume)
+Java_org_leeroy_medialib_AvosMediaPlayer_setVolume(JNIEnv *env, jobject thiz, float leftVolume, float rightVolume)
 {
     // XXX
 }
 
 int
-Java_com_archos_medialib_AvosMediaPlayer_getAudioSessionId(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_getAudioSessionId(JNIEnv *env, jobject thiz)
 {
     int ret = 0;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
@@ -666,7 +666,7 @@ Java_com_archos_medialib_AvosMediaPlayer_getAudioSessionId(JNIEnv *env, jobject 
 }
 
 jbyteArray
-Java_com_archos_medialib_AvosMediaPlayer_getMetadata(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaPlayer_getMetadata(JNIEnv *env, jobject thiz)
 {
     metadata_buffer_t *buffer = NULL;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
@@ -697,7 +697,7 @@ end:
 }
 
 jboolean
-Java_com_archos_medialib_AvosMediaPlayer_setAudioTrack(JNIEnv *env, jobject thiz, int track)
+Java_org_leeroy_medialib_AvosMediaPlayer_setAudioTrack(JNIEnv *env, jobject thiz, int track)
 {
     int ret = 0;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
@@ -707,7 +707,7 @@ Java_com_archos_medialib_AvosMediaPlayer_setAudioTrack(JNIEnv *env, jobject thiz
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_checkSubtitles(JNIEnv *env, jobject thiz, int track)
+Java_org_leeroy_medialib_AvosMediaPlayer_checkSubtitles(JNIEnv *env, jobject thiz, int track)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -715,7 +715,7 @@ Java_com_archos_medialib_AvosMediaPlayer_checkSubtitles(JNIEnv *env, jobject thi
 }
 
 jboolean
-Java_com_archos_medialib_AvosMediaPlayer_setSubtitleTrack(JNIEnv *env, jobject thiz, int track)
+Java_org_leeroy_medialib_AvosMediaPlayer_setSubtitleTrack(JNIEnv *env, jobject thiz, int track)
 {
     int ret = 0;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
@@ -725,7 +725,7 @@ Java_com_archos_medialib_AvosMediaPlayer_setSubtitleTrack(JNIEnv *env, jobject t
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setSubtitleDelay(JNIEnv *env, jobject thiz, int delay)
+Java_org_leeroy_medialib_AvosMediaPlayer_setSubtitleDelay(JNIEnv *env, jobject thiz, int delay)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -733,7 +733,7 @@ Java_com_archos_medialib_AvosMediaPlayer_setSubtitleDelay(JNIEnv *env, jobject t
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setSubtitleRatio(JNIEnv *env, jobject thiz, int n, int d)
+Java_org_leeroy_medialib_AvosMediaPlayer_setSubtitleRatio(JNIEnv *env, jobject thiz, int n, int d)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -741,7 +741,7 @@ Java_com_archos_medialib_AvosMediaPlayer_setSubtitleRatio(JNIEnv *env, jobject t
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setAudioFilter(JNIEnv *env, jobject thiz, int n, int night_on)
+Java_org_leeroy_medialib_AvosMediaPlayer_setAudioFilter(JNIEnv *env, jobject thiz, int n, int night_on)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -749,7 +749,7 @@ Java_com_archos_medialib_AvosMediaPlayer_setAudioFilter(JNIEnv *env, jobject thi
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setAvDelay(JNIEnv *env, jobject thiz, int delay)
+Java_org_leeroy_medialib_AvosMediaPlayer_setAvDelay(JNIEnv *env, jobject thiz, int delay)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -757,7 +757,7 @@ Java_com_archos_medialib_AvosMediaPlayer_setAvDelay(JNIEnv *env, jobject thiz, i
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setAvSpeed(JNIEnv *env, jobject thiz, float speed)
+Java_org_leeroy_medialib_AvosMediaPlayer_setAvSpeed(JNIEnv *env, jobject thiz, float speed)
 {
     avos_mp_t *mp = get_mp_or_throw(env, thiz);
     if (!mp) return;
@@ -765,7 +765,7 @@ Java_com_archos_medialib_AvosMediaPlayer_setAvSpeed(JNIEnv *env, jobject thiz, f
 }
 
 void
-Java_com_archos_medialib_AvosMediaPlayer_setNextTrack(JNIEnv *env, jobject thiz, jstring path)
+Java_org_leeroy_medialib_AvosMediaPlayer_setNextTrack(JNIEnv *env, jobject thiz, jstring path)
 {
     const char *cPath = path ? (*env)->GetStringUTFChars(env, path, NULL) : NULL;
     avos_mp_t *mp = get_mp_or_throw(env, thiz);

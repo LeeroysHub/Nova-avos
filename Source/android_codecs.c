@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ void acodecs_init(void) {
 			willDetach = 1;
 	}
 
-    const char* javaName = "com/archos/mediacenter/video/utils/CodecDiscovery";
+    const char* javaName = "org/leeroy/mediaplayer/video/utils/CodecDiscovery";
 
 	DBG serprintf("%s\n", javaName);
 	jCodecDiscoveryClass = (*env)->NewGlobalRef(env, (*env)->FindClass(env, javaName));

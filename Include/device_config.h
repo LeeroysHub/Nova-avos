@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ typedef enum { // don't forget to add string in DEVICE_HW_TYPE_NAMES
 	HW_TYPE_UNKNOWN,
 	HW_TYPE_DEFAULT_KK, // default on android 4.4 and above
 	HW_TYPE_OMAP4,
-	HW_TYPE_ARCHOS_OMAP4,
+	HW_TYPE_LEEROYFLIX_OMAP4,
 	HW_TYPE_RK29,
 	HW_TYPE_RK30,
 	HW_TYPE_RK32,
@@ -46,7 +46,7 @@ typedef enum { // don't forget to add string in DEVICE_HW_TYPE_NAMES
 	"unknown", \
 	"default_kk", \
 	"omap4", \
-	"omap4_archos", \
+	"omap4_leeroyflix", \
 	"rk29", \
 	"rk30", \
 	"rk32", \
@@ -84,7 +84,7 @@ typedef enum {
 	ANDROID_VERSION_L
 } DEVICE_ANDROID_VERSION;
 
-// in sync with MediaLib/src/com/archos/medialib/LibAvos.java
+// in sync with MediaLib/src/org/leeroy/medialib/LibAvos.java
 
 enum mp_decoder_type {
 	MP_DECODER_ANY,

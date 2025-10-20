@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@
 #include <unistd.h>
 
 #ifdef CONFIG_MEDIACENTER
-#define SERVER  "/data/data/com.archos.mediacenter.videoti/files/avsh.sock"
+#define SERVER  "/data/data/org.leeroy.mediaplayer.videoti/files/avsh.sock"
 #else
 #define SERVER  "/tmp/avshsocket"
 #endif

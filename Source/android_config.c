@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,8 +75,8 @@ static hw_config_t hw_config_omap4 = {
 	}
 };
 
-static hw_config_t hw_config_archos_omap4 = {
-	HW_TYPE_ARCHOS_OMAP4,
+static hw_config_t hw_config_leeroyflix_omap4 = {
+	HW_TYPE_LEEROYFLIX_OMAP4,
 	OMXHW,
 	{
 		{ AV_IMAGE_BGRA_32, HAL_PIXEL_FORMAT_BGRA_8888, BUFFER_TYPE_SW, ANDROID_VERSION_UNKNOWN },
@@ -225,7 +225,7 @@ static hw_config_t *hw_config_table [] = {
 	&hw_config_unknown,
 	&hw_config_default_kk,
 	&hw_config_omap4,
-	&hw_config_archos_omap4,
+	&hw_config_leeroyflix_omap4,
 	&hw_config_rk29,
 	&hw_config_rk30,
 	&hw_config_tegra2,
