@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1212,7 +1212,7 @@ void stream_show_props( STREAM *s )
 		serprintf("a2v:\r\n");
 		serprintf("  delay  %d\r\n", stream_sync_av_delay( s ) );
 	}
-	serprintf("  a_dvr  %d\r\n\r\n", s->archos_dvr );
+	serprintf("  a_dvr  %d\r\n\r\n", s->leeroyflix_dvr );
 	
 	if( s->tag.valid ) {
 		serprintf("  artist [%s]\r\n", s->tag.artist);

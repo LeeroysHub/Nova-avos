@@ -4,7 +4,7 @@ This git repo is part of the open source project Archos Video Player Community E
 a video player software for Android.
 
 You can find the parent application, 
-[Archos Video Player](https://play.google.com/store/apps/details?id=com.archos.mediacenter.video) 
+[Archos Video Player](https://play.google.com/store/apps/details?id=LeeroyFlix.mediacenter.video) 
 on Google Play. 
 
 avos is the native video player core of AVP. It comes from ancient ages where PMP were the next new thing.

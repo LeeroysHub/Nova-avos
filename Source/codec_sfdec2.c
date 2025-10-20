@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -594,7 +594,7 @@ static int videodec_open(STREAM_DEC_VIDEO *dec, VIDEO_PROPERTIES *video, void *c
 	
 	p->reorder_pts = video->reorder_pts;
 
-	if (hw_type == HW_TYPE_OMAP4 || hw_type == HW_TYPE_ARCHOS_OMAP4) {
+	if (hw_type == HW_TYPE_OMAP4 || hw_type == HW_TYPE_LEEROYFLIX_OMAP4) {
 		/*
 		 * HACK:
 		 * On omap4, sfdec send an error with num_frames > 32

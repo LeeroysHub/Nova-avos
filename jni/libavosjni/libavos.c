@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -137,21 +137,21 @@ static int register_libavos(JNIEnv *env)
         return -1; \
 } while (0)
 
-    GET_CLASS(fields.AvosMediaPlayerClazz , "com/archos/medialib/AvosMediaPlayer");
+    GET_CLASS(fields.AvosMediaPlayerClazz , "org/leeroy/medialib/AvosMediaPlayer");
     fields.AvosMediaPlayer_postEventMethod =
             (*env)->GetStaticMethodID(env, fields.AvosMediaPlayerClazz, "postEventFromNative",
                     "(Ljava/lang/Object;IIILjava/lang/Object;)V");
     if (!fields.AvosMediaPlayer_postEventMethod)
         return -1;
 
-    GET_CLASS(fields.AvosBitmapHelperClazz, "com/archos/medialib/AvosBitmapHelper");
+    GET_CLASS(fields.AvosBitmapHelperClazz, "org/leeroy/medialib/AvosBitmapHelper");
     fields.AvosBitmapHelper_createRGBBitmapMethod =
             (*env)->GetStaticMethodID(env, fields.AvosBitmapHelperClazz, "createRGBBitmap",
                     "([IIIIIII)Landroid/graphics/Bitmap;");
     if (!fields.AvosBitmapHelper_createRGBBitmapMethod)
         return -1;
 
-    GET_CLASS(fields.SubtitleClazz, "com/archos/medialib/Subtitle");
+    GET_CLASS(fields.SubtitleClazz, "org/leeroy/medialib/Subtitle");
     fields.Subtitle_createTimedTextSubtitleMethod =
             (*env)->GetStaticMethodID(env, fields.SubtitleClazz, "createTimedTextSubtitle",
                     "(IILjava/lang/String;)"
@@ -249,7 +249,7 @@ void JNI_OnUnload(JavaVM* vm, void* reserved)
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeInit(JNIEnv *env, jobject thiz, jstring pkg_name, jboolean has_pluginlib)
+Java_org_leeroy_medialib_LibAvos_nativeInit(JNIEnv *env, jobject thiz, jstring pkg_name, jboolean has_pluginlib)
 {
     const char *c_pkg_name = (*env)->GetStringUTFChars(env, pkg_name, NULL);
 
@@ -259,7 +259,7 @@ Java_com_archos_medialib_LibAvos_nativeInit(JNIEnv *env, jobject thiz, jstring p
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeDebugInit(JNIEnv *env)
+Java_org_leeroy_medialib_LibAvos_nativeDebugInit(JNIEnv *env)
 {
     pthread_mutex_lock(&libavos.mtx);
     libavos_debug_acquire();
@@ -267,7 +267,7 @@ Java_com_archos_medialib_LibAvos_nativeDebugInit(JNIEnv *env)
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeLoadLibraryRTLDGlobal(JNIEnv *env, jobject thiz, jstring lib)
+Java_org_leeroy_medialib_LibAvos_nativeLoadLibraryRTLDGlobal(JNIEnv *env, jobject thiz, jstring lib)
 {
     if (lib) {
         const char *c_lib = (*env)->GetStringUTFChars(env, lib, NULL);
@@ -281,7 +281,7 @@ Java_com_archos_medialib_LibAvos_nativeLoadLibraryRTLDGlobal(JNIEnv *env, jobjec
 
 
 void
-Java_com_archos_medialib_LibAvos_nativeAvsh(JNIEnv *env, jobject thiz, jstring cmd)
+Java_org_leeroy_medialib_LibAvos_nativeAvsh(JNIEnv *env, jobject thiz, jstring cmd)
 {
     if (cmd) {
         const char *c_cmd = (*env)->GetStringUTFChars(env, cmd, NULL);
@@ -295,7 +295,7 @@ Java_com_archos_medialib_LibAvos_nativeAvsh(JNIEnv *env, jobject thiz, jstring c
 
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetSubtitlePath(JNIEnv *env, jobject thiz, jstring path)
+Java_org_leeroy_medialib_LibAvos_nativeSetSubtitlePath(JNIEnv *env, jobject thiz, jstring path)
 {
     if (path) {
         const char *c_path = (*env)->GetStringUTFChars(env, path, NULL);
@@ -307,7 +307,7 @@ Java_com_archos_medialib_LibAvos_nativeSetSubtitlePath(JNIEnv *env, jobject thiz
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetDecoder(JNIEnv *env, jobject thiz, jint decoder)
+Java_org_leeroy_medialib_LibAvos_nativeSetDecoder(JNIEnv *env, jobject thiz, jint decoder)
 {
     pthread_mutex_lock(&libavos.mtx);
     libavos_set_decoder(decoder);
@@ -315,7 +315,7 @@ Java_com_archos_medialib_LibAvos_nativeSetDecoder(JNIEnv *env, jobject thiz, jin
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetAudioInterface(JNIEnv *env, jobject thiz, jint audio_interface)
+Java_org_leeroy_medialib_LibAvos_nativeSetAudioInterface(JNIEnv *env, jobject thiz, jint audio_interface)
 {
     pthread_mutex_lock(&libavos.mtx);
     libavos_set_audio_interface(audio_interface);
@@ -323,7 +323,7 @@ Java_com_archos_medialib_LibAvos_nativeSetAudioInterface(JNIEnv *env, jobject th
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetCodepage(JNIEnv *env, jobject thiz, jint codepage)
+Java_org_leeroy_medialib_LibAvos_nativeSetCodepage(JNIEnv *env, jobject thiz, jint codepage)
 {
     pthread_mutex_lock(&libavos.mtx);
     libavos_set_codepage(codepage);
@@ -331,7 +331,7 @@ Java_com_archos_medialib_LibAvos_nativeSetCodepage(JNIEnv *env, jobject thiz, ji
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetOutputSampleRate(JNIEnv *env, jobject thiz, jint sample_rate)
+Java_org_leeroy_medialib_LibAvos_nativeSetOutputSampleRate(JNIEnv *env, jobject thiz, jint sample_rate)
 {
     pthread_mutex_lock(&libavos.mtx);
     libavos_set_output_sample_rate(sample_rate);
@@ -339,7 +339,7 @@ Java_com_archos_medialib_LibAvos_nativeSetOutputSampleRate(JNIEnv *env, jobject 
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetPassthrough(JNIEnv *env, jobject thiz, jint force_passthrough)
+Java_org_leeroy_medialib_LibAvos_nativeSetPassthrough(JNIEnv *env, jobject thiz, jint force_passthrough)
 {
     pthread_mutex_lock(&libavos.mtx);
     libavos_set_passthrough(force_passthrough);
@@ -347,7 +347,7 @@ Java_com_archos_medialib_LibAvos_nativeSetPassthrough(JNIEnv *env, jobject thiz,
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetHdmiSupportedAudioCodecs(JNIEnv *env, jobject thiz, jlong hdmi_audio_codecs_flag)
+Java_org_leeroy_medialib_LibAvos_nativeSetHdmiSupportedAudioCodecs(JNIEnv *env, jobject thiz, jlong hdmi_audio_codecs_flag)
 {
     pthread_mutex_lock(&libavos.mtx);
     libavos_set_hdmi_supported_audio_codecs(hdmi_audio_codecs_flag);
@@ -372,7 +372,7 @@ Java_org_leeroy_medialib_LibAvos_nativeSetAudioSpeed(JNIEnv *env, jobject thiz, 
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetAndroidFrameTiming(JNIEnv *env, jobject thiz, jboolean enable)
+Java_org_leeroy_medialib_LibAvos_nativeSetAndroidFrameTiming(JNIEnv *env, jobject thiz, jboolean enable)
 {
 	pthread_mutex_lock(&libavos.mtx);
 	libavos_set_android_frame_timing(enable);
@@ -388,7 +388,7 @@ Java_org_leeroy_medialib_LibAvos_nativeSetRaisePriority(JNIEnv *env, jobject thi
 } */ 
 
 void
-Java_com_archos_medialib_LibAvos_nativeEnableAudioSpeed(JNIEnv *env, jobject thiz, jboolean enable)
+Java_org_leeroy_medialib_LibAvos_nativeEnableAudioSpeed(JNIEnv *env, jobject thiz, jboolean enable)
 {
 	pthread_mutex_lock(&libavos.mtx);
 	libavos_enable_audio_speed(enable);
@@ -396,7 +396,7 @@ Java_com_archos_medialib_LibAvos_nativeEnableAudioSpeed(JNIEnv *env, jobject thi
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeParserSyncMode(JNIEnv *env, jobject thiz, jint mode)
+Java_org_leeroy_medialib_LibAvos_nativeParserSyncMode(JNIEnv *env, jobject thiz, jint mode)
 {
 	pthread_mutex_lock(&libavos.mtx);
 	libavos_set_parser_sync_mode(mode);
@@ -404,7 +404,7 @@ Java_com_archos_medialib_LibAvos_nativeParserSyncMode(JNIEnv *env, jobject thiz,
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetDownmix(JNIEnv *env, jobject thiz, jint downmix)
+Java_org_leeroy_medialib_LibAvos_nativeSetDownmix(JNIEnv *env, jobject thiz, jint downmix)
 {
     pthread_mutex_lock(&libavos.mtx);
     libavos_set_downmix(downmix);
@@ -412,7 +412,7 @@ Java_com_archos_medialib_LibAvos_nativeSetDownmix(JNIEnv *env, jobject thiz, jin
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetDynamicAudioDelay(JNIEnv *env, jobject thiz, jboolean enable)
+Java_org_leeroy_medialib_LibAvos_nativeSetDynamicAudioDelay(JNIEnv *env, jobject thiz, jboolean enable)
 {
     pthread_mutex_lock(&libavos.mtx);
     libavos_set_dynamic_audio_delay(enable);
@@ -420,7 +420,7 @@ Java_com_archos_medialib_LibAvos_nativeSetDynamicAudioDelay(JNIEnv *env, jobject
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetStreamMaxIframeSize(JNIEnv *env, jobject thiz, jint size)
+Java_org_leeroy_medialib_LibAvos_nativeSetStreamMaxIframeSize(JNIEnv *env, jobject thiz, jint size)
 {
 	pthread_mutex_lock(&libavos.mtx);
 	libavos_set_default_stream_max_iframe_size(size);
@@ -428,7 +428,7 @@ Java_com_archos_medialib_LibAvos_nativeSetStreamMaxIframeSize(JNIEnv *env, jobje
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetStreamBufferSize(JNIEnv *env, jobject thiz, jint size)
+Java_org_leeroy_medialib_LibAvos_nativeSetStreamBufferSize(JNIEnv *env, jobject thiz, jint size)
 {
 	pthread_mutex_lock(&libavos.mtx);
 	libavos_set_default_stream_buffer_size(size);
@@ -464,7 +464,7 @@ int libavos_transform_audio_impl(float* samples, int size)
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetAudioTransformer(JNIEnv *env, jobject thiz, jobject transformer)
+Java_org_leeroy_medialib_LibAvos_nativeSetAudioTransformer(JNIEnv *env, jobject thiz, jobject transformer)
 {
     if (fields.AudioTransformerObj) {
         (*env)->DeleteGlobalRef(env, fields.AudioTransformerObj);

@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -219,8 +219,8 @@ void app_start( int argc, char *argv[] )
 	serprintf(" \r\n");
 	serprintf(" \r\n");
 	serprintf("*************************************\r\n");
-	serprintf("*           ARCHOS AVX/AVOS         *\r\n");
-	serprintf("*    (c)  2005-2012 Archos Team     *\r\n");
+	serprintf("*           LEEROYFLIX AVX/AVOS         *\r\n");
+	serprintf("*    (c)  2005-2012 LeeroyFlix Team     *\r\n");
 	serprintf("*************************************\r\n");
 	serprintf(" \r\n");
 	serprintf("\r\n");

@@ -1,5 +1,5 @@
 <!--
-  Copyright 2017 Archos SA
+  Copyright 2017 LeeroyFlix
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 -->
 <!-- dummy AndroidManifest.xml, used only for ndk-gdb !-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.archos.mediacenter.video"
+    package="org.leeroy.mediaplayer.video"
     android:versionCode="1"
     android:versionName="1.0">
 
