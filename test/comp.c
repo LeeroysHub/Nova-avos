@@ -31,7 +31,7 @@
 #define STANDALONE
 #define SIM
 
-#define DBG if(1)
+#define DBG if(0)
 #define DBG2 if(0)
 
 #define amalloc( a )            malloc( (a) )
