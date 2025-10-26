@@ -49,7 +49,7 @@ int Debug[DBG_MAX_ENTRIES] = {
 	[DBG_PARSER] = 0,
 	[DBG_STREAM] = 0,
 	[DBG_SINK] = 0,
-	[DBG_FB] = 1,
+	[DBG_FB] = 0,
 };
 #endif
 

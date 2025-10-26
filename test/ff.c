@@ -23,8 +23,8 @@
 #define CONFIG_VOBSUB
 #define serprintf printf
 
-#define DBGV1 if( 1 )
-#define DBGV2 if( 1 )
+#define DBGV1 if( 0 )
+#define DBGV2 if( 0 )
 #define DUMP_PPM
 
 #include "../Source/vobsub.c"
