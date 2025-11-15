@@ -379,6 +379,14 @@ Java_com_archos_medialib_LibAvos_nativeSetAndroidFrameTiming(JNIEnv *env, jobjec
 	pthread_mutex_unlock(&libavos.mtx);
 }
 
+/* void
+Java_org_leeroy_medialib_LibAvos_nativeSetRaisePriority(JNIEnv *env, jobject thiz, jboolean enable)
+{
+	pthread_mutex_lock(&libavos.mtx);
+	libavos_set_raise_priority(enable);
+	pthread_mutex_unlock(&libavos.mtx);
+} */ 
+
 void
 Java_com_archos_medialib_LibAvos_nativeEnableAudioSpeed(JNIEnv *env, jobject thiz, jboolean enable)
 {

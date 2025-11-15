@@ -71,6 +71,7 @@ static int sfdec_force_blit = 0;
 static int sfdec_no_drop    = 0;
 static int sfdec_threshold  = 200;
 static int android_sync = 1;
+//static int raise_priority = 0;
 
 DECLARE_DEBUG_PARAM ("sfmf", sfdec_max_frames );
 DECLARE_DEBUG_PARAM ("sfhw", sfdec_force_hw );
@@ -357,9 +358,9 @@ static void *videosink_thread(void *ctx)
 	priv_t *p = (priv_t*) ctx;
 	STREAM *s = (STREAM *)p->dec->ctx;
 
-#ifdef CONFIG_ANDROID
-	set_thread_priority_nice(-8);
-#endif
+/* #ifdef CONFIG_ANDROID
+	if (raise_priority != 0) set_thread_priority_nice(-8);
+#endif */
 
 	pthread_mutex_lock(&p->locked.mtx);
 	while (p->locked.run && !p->locked.error) {
@@ -474,9 +475,9 @@ static void *videodec_thread(void *ctx)
 	priv_t *p = (priv_t*) ctx;
 	sfdec_read_out_t read_out;
 
-#ifdef CONFIG_ANDROID
-	set_thread_priority_nice(-6);
-#endif
+/* #ifdef CONFIG_ANDROID
+	if (raise_priority != 0) set_thread_priority_nice(-6);
+#endif */
 
 	pthread_mutex_lock(&p->locked.mtx);
 
@@ -997,6 +998,12 @@ void set_android_sync(int sync)
 	DBGSI serprintf("set_android_sync: %d\n", sync);
 	android_sync = sync;
 }
+
+/* void set_raise_priority(int raise)
+{
+	DBGSI serprintf("set_raise_priority: %d\n", raise);
+	raise_priority = raise;
+} */
 
 #define OMXC_REGISTER( format, mangler ) \
 STREAM_REGISTER_DEC_VIDEO( format, 0, MAXW, MAXH, SFDEC_MEDIACODEC, new_dec, "sfdec2", mangler );

@@ -48,6 +48,7 @@ void device_config_set_audio_interface(int audio_interface);
 void device_config_set_output_sample_rate(int sample_rate);
 #ifdef CONFIG_ANDROID
 void set_android_sync(int enable);
+//void set_raise_priority(int raise);
 #endif
 
 static pthread_t mainloop_thread;
@@ -202,6 +203,15 @@ void libavos_set_android_frame_timing(int enable)
 	(void)enable;
 #endif
 }
+
+/* void libavos_set_raise_priority(int enable)
+{
+#ifdef CONFIG_ANDROID
+	set_raise_priority(enable);
+#else
+	(void)enable;
+#endif
+} */
 
 void libavos_enable_audio_speed(int enable)
 {
