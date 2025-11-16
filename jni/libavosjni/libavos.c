@@ -355,7 +355,16 @@ Java_com_archos_medialib_LibAvos_nativeSetHdmiSupportedAudioCodecs(JNIEnv *env, 
 }
 
 void
-Java_com_archos_medialib_LibAvos_nativeSetAudioSpeed(JNIEnv *env, jobject thiz, jfloat audio_speed)
+Java_org_leeroy_medialib_LibAvos_nativeSetMaxPcmChannels(JNIEnv *env, jobject thiz, jint max_channels)
+{
+    pthread_mutex_lock(&libavos.mtx);
+    libavos_set_max_pcm_channels(max_channels);
+    LOGV("nativeSetMaxPcmChannels(%d)\n", max_channels);
+    pthread_mutex_unlock(&libavos.mtx);
+}
+
+void
+Java_org_leeroy_medialib_LibAvos_nativeSetAudioSpeed(JNIEnv *env, jobject thiz, jfloat audio_speed)
 {
     pthread_mutex_lock(&libavos.mtx);
     libavos_set_audio_speed(audio_speed);
