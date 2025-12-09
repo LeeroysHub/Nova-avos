@@ -38,7 +38,7 @@
 /* Align on android mini thumb width */ 
 #define ANDROID_THUMB_WIDTH	512
 
-#define THUMB_TIME (200 * 1000)
+#define THUMB_TIME (120 * 1000)
 
 #ifdef CONFIG_VIDEO
 // ************************************************
@@ -205,14 +205,14 @@ serprintf("thumb: ve %d\r\n", stream->video_error );
 	if( !duration ) {
 		int total;
 		stream_get_current_pos( stream, &total );
-		start = total / 2;
+		start = total / 10;
 serprintf("get thumb at pos %d\r\n", start );
 	} else {
 		// set thumb_time only if stream has duration.
 		if (thumb_time != -1 && thumb_time <= duration ) {
 			start = thumb_time;
 		} else {
-			start = duration / 2;
+			start = duration / 10;
 			start = MIN( THUMB_TIME, start );
 		}
 serprintf("get thumb at time %d  duration %d\r\n", start, duration );
