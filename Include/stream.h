@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ struct STREAM;
 #define STREAM_LARGE_BUFFER_SIZE   128
 #define STREAM_MAX_FRAMES 64
 
-// in sync with android/vendor/archos/frameworks/ArchosFrameworks/java/com/archos/frameworks/media/AvosPlayer.java
+// in sync with android/vendor/LEEROYFLIX/frameworks/LEEROYFLIXFrameworks/java/org/leeroy/frameworks/media/AvosPlayer.java
 typedef enum
 {
 	STREAM_SPEED_NORMAL = 0,
@@ -503,7 +503,7 @@ typedef struct STREAM {
 	int 		has_index;
 	UCHAR		*index_buffer;
 	
-	int 		archos_dvr;
+	int 		LeeroyFlix_dvr;
 
 	int		data_rate;
 	

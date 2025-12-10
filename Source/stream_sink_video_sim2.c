@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -412,7 +412,7 @@ static int sdl_open( STREAM_SINK_VIDEO *sink )
 
         serprintf("sdl_open: window=%p, renderer=%p\n", p->sdl_window, p->sdl_renderer);
 
-        SDL_SetWindowTitle(p->sdl_window, "nova video player (avos)");
+        SDL_SetWindowTitle(p->sdl_window, "LeeroyFlix");
         SDL_SetWindowPosition(p->sdl_window, SDL_WINDOWPOS_CENTERED , SDL_WINDOWPOS_CENTERED );
         SDL_ShowWindow(p->sdl_window);
 

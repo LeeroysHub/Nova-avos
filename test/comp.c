@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@
 #define STANDALONE
 #define SIM
 
-#define DBG if(1)
+#define DBG if(0)
 #define DBG2 if(0)
 
 #define amalloc( a )            malloc( (a) )

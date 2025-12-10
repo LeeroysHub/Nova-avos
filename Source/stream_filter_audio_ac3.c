@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 
 /*
- * AC3 Encoding Audio Filter for Nova Video Player
+ * AC3 Encoding Audio Filter for LeeroyFlix
  *
  * This filter provides universal passthrough support by encoding multichannel
  * decoded PCM audio to AC3 5.1. This is useful for devices that support AC3

@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
  *  Description: 
  *	Device power down and standby management
  *
- * Author: Matthias Welwarsky <welwarsky@archos.com>, (C) 2007
+ * Author: Matthias Welwarsky <welwarsky@LEEROYFLIX.com>, (C) 2007
  *
  *
  */

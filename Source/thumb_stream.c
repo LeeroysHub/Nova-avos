@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@
 #define DBG  if(Debug[DBG_THUMB])
 #define DBG2 if(Debug[DBG_THUMB] > 1)
 
-#define THUMB_TIME (200 * 1000)
+#define THUMB_TIME (120 * 1000)
 
 #ifdef CONFIG_VIDEO
 
@@ -220,14 +220,14 @@ IMAGE* thumb_stream_get_frame(thumb_stream_t *thumb_stream, STREAM_URL *src, int
 	if( !duration ) {
 		int total;
 		stream_get_current_pos( stream, &total );
-		start = total / 2;
+		start = total / 10;
 		serprintf("get thumb at pos %d\r\n", start );
 	} else {
 		// set thumb_time only if stream has duration.
 		if (thumb_time != -1 && thumb_time <= duration ) {
 			start = thumb_time;
 		} else {
-			start = duration / 2;
+			start = duration / 10;
 			start = MIN( THUMB_TIME, start );
 		}
 		serprintf("get thumb at time %d  duration %d\r\n", start, duration );

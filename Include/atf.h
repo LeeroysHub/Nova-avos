@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,8 @@
 #include "image.h"
 #include "id3tag.h"
 
-#define ARCHOS_THUMB_DIRNAME		".arcthumb"
-#define ARCHOS_USB_THUMB_DIRNAME	".usb_thumbs"
+#define LeeroyFlix_THUMB_DIRNAME		".lfxthumb"
+#define LeeroyFlix_USB_THUMB_DIRNAME	".usb_thumbs"
 #define ARCTHUMB_FILE_EXTENSION		"ATF"
 #define ARCTHUMB_BMP_FILE_EXTENSION	"BMP"
 

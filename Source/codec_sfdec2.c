@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,12 +62,22 @@
 
 #define CLOG(fmt, ...) serprintf("%s: " fmt "\n", __FUNCTION__, ##__VA_ARGS__)
 
+#ifdef CONFIG_ANDROID
+static void set_thread_priority_nice(int nice_value)
+{
+	int tid = (int)syscall(__NR_gettid);
+	if (tid > 0)
+		setpriority(PRIO_PROCESS, tid, nice_value);
+}
+#endif
+
 static int sfdec_max_frames = 2;
 static int sfdec_force_hw   = -1;
 static int sfdec_force_blit = 0;
 static int sfdec_no_drop    = 0;
 static int sfdec_threshold  = 200;
 static int android_sync = 1;
+static int raise_priority = 0;
 
 DECLARE_DEBUG_PARAM ("sfmf", sfdec_max_frames );
 DECLARE_DEBUG_PARAM ("sfhw", sfdec_force_hw );
@@ -578,6 +588,10 @@ static void *videosink_thread(void *ctx)
 	priv_t *p = (priv_t*) ctx;
 	STREAM *s = (STREAM *)p->dec->ctx;
 
+#ifdef CONFIG_ANDROID
+	if (raise_priority != 0) set_thread_priority_nice(-8);
+#endif
+
 	pthread_mutex_lock(&p->locked.mtx);
 	while (p->locked.run && !p->locked.error) {
 
@@ -916,6 +930,10 @@ static void *videodec_thread(void *ctx)
 	priv_t *p = (priv_t*) ctx;
 	sfdec_read_out_t read_out;
 
+#ifdef CONFIG_ANDROID
+	if (raise_priority != 0) set_thread_priority_nice(-6);
+#endif
+
 	pthread_mutex_lock(&p->locked.mtx);
 
 	while (p->locked.run && !p->locked.error) {
@@ -1040,7 +1058,7 @@ static int videodec_open(STREAM_DEC_VIDEO *dec, VIDEO_PROPERTIES *video, void *c
 
 	p->reorder_pts = video->reorder_pts;
 
-	if (hw_type == HW_TYPE_OMAP4 || hw_type == HW_TYPE_ARCHOS_OMAP4) {
+	if (hw_type == HW_TYPE_OMAP4 || hw_type == HW_TYPE_LeeroyFlix_OMAP4) {
 		/*
 		 * HACK:
 		 * On omap4, sfdec send an error with num_frames > 32
@@ -1587,6 +1605,12 @@ void set_android_sync(int sync)
 int get_android_sync(void)
 {
 	return android_sync;
+}
+
+void set_raise_priority(int raise)
+{
+	DBGSI serprintf("set_raise_priority: %d\n", raise);
+	raise_priority = raise;
 }
 
 #define OMXC_REGISTER( format, mangler ) \

@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@ int Debug[DBG_MAX_ENTRIES] = {
 	[DBG_PARSER] = 0,
 	[DBG_STREAM] = 0,
 	[DBG_SINK] = 0,
-	[DBG_FB] = 1,
+	[DBG_FB] = 0,
 };
 #endif
 

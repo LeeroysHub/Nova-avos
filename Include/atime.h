@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ extern volatile ULONG  m_time;		// time in 1/1000s steps
 time_t secure_time( time_t *t );
 time_t user_time  ( time_t *t );
 
-int atime( void );			// "archos" time in ms
+int atime( void );			// "LEEROYFLIX" time in ms
 
 int time_update_time( void );
 void time_init_time( void );

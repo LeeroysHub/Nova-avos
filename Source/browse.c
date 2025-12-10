@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -693,11 +693,11 @@ int CheckHiddenDir( char *name, int level, int fs )
 	if ( level == 0 && strcmpNC( name, "usb_host") == 0 )
 		return 1;
 
-#ifndef SHOW_ARCHOS_FOLDERS
-	if ( ( level == 0 ) && ( strcmpNC( name, ARCHOS_SYSTEM_DIRNAME ) == 0 ) )
+#ifndef SHOW_LeeroyFlix_FOLDERS
+	if ( ( level == 0 ) && ( strcmpNC( name, LeeroyFlix_SYSTEM_DIRNAME ) == 0 ) )
 		return 1;
 
-	if ( strcmpNC( name, ARCHOS_THUMB_DIRNAME ) == 0 )
+	if ( strcmpNC( name, LeeroyFlix_THUMB_DIRNAME ) == 0 )
 		return 1;
 #endif
 	// Hide dirs starting with a dot

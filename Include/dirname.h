@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
 #ifndef _DIRNAME_H_
 #define _DIRNAME_H_
 
-#define ARCHOS_SYSTEM_DIRNAME   "System"
+#define LeeroyFlix_SYSTEM_DIRNAME   "System"
 #define VIDEO_DIRNAME           "Video"
 #define MUSIC_DIRNAME           "Music"
 #define PHOTO_DIRNAME           "Pictures"

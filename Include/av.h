@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -427,7 +427,7 @@ typedef enum {
 
 #define VIDEO_FOURCC_MJPG		mmioFOURCC('M', 'J', 'P', 'G')
 
-#define VIDEO_FOURCC_ARCHOS		mmioFOURCC('R', 'C', 'H', 'S')
+#define VIDEO_FOURCC_LeeroyFlix		mmioFOURCC('R', 'C', 'H', 'S')
 #define VIDEO_FOURCC_YUV		mmioFOURCC('Y', 'U', 'V', ' ')
 
 #define VIDEO_FOURCC_SPARK		mmioFOURCC('S', 'P', 'R', 'K')
@@ -484,7 +484,7 @@ enum {
 	VIDEO_FORMAT_MSMP43,
 	VIDEO_FORMAT_MSMP42,
 	VIDEO_FORMAT_MSMP41,
-	VIDEO_FORMAT_ARCHOS,
+	VIDEO_FORMAT_LeeroyFlix,
 	VIDEO_FORMAT_MJPG,
 	VIDEO_FORMAT_YUV,
 	VIDEO_FORMAT_SPARK,

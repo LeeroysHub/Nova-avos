@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ register_avosmediametadataretriever(JNIEnv *env)
 {
     jclass clazz;
 
-    clazz = (*env)->FindClass(env, "com/archos/medialib/AvosMediaMetadataRetriever");
+    clazz = (*env)->FindClass(env, "org/leeroy/medialib/AvosMediaMetadataRetriever");
     if (!clazz)
         return -1;
     mr_fields.handle = (*env)->GetFieldID(env, clazz, "mMediaMetadataRetrieverHandle", "J");
@@ -102,7 +102,7 @@ static inline avos_mr_t *get_mr_or_throw(JNIEnv *env, jobject thiz)
 }
 
 void
-Java_com_archos_medialib_AvosMediaMetadataRetriever_create(JNIEnv *env, jobject thiz, jobject weak_thiz)
+Java_org_leeroy_medialib_AvosMediaMetadataRetriever_create(JNIEnv *env, jobject thiz, jobject weak_thiz)
 {
     avos_mr_t *mr;
 
@@ -119,7 +119,7 @@ err:
 }
 
 void
-Java_com_archos_medialib_AvosMediaMetadataRetriever_nativeRelease(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaMetadataRetriever_nativeRelease(JNIEnv *env, jobject thiz)
 {
     avos_mr_t *mr = get_mr(env, thiz);
     if (!mr)
@@ -132,7 +132,7 @@ Java_com_archos_medialib_AvosMediaMetadataRetriever_nativeRelease(JNIEnv *env, j
 }
 
 void
-Java_com_archos_medialib_AvosMediaMetadataRetriever_setDataSource(JNIEnv *env, jobject thiz, jstring path, jobjectArray keys, jobjectArray values)
+Java_org_leeroy_medialib_AvosMediaMetadataRetriever_setDataSource(JNIEnv *env, jobject thiz, jstring path, jobjectArray keys, jobjectArray values)
 {
     avos_mr_t *mr = get_mr_or_throw(env, thiz);
     if (!mr)
@@ -151,7 +151,7 @@ Java_com_archos_medialib_AvosMediaMetadataRetriever_setDataSource(JNIEnv *env, j
 }
 
 void
-Java_com_archos_medialib_AvosMediaMetadataRetriever_setDataSourceFD(JNIEnv *env, jobject thiz, jobject fileDescriptor, jlong offset, jlong length)
+Java_org_leeroy_medialib_AvosMediaMetadataRetriever_setDataSourceFD(JNIEnv *env, jobject thiz, jobject fileDescriptor, jlong offset, jlong length)
 {
     avos_mr_t *mr = get_mr_or_throw(env, thiz);
     if (!mr)
@@ -166,7 +166,7 @@ Java_com_archos_medialib_AvosMediaMetadataRetriever_setDataSourceFD(JNIEnv *env,
 }
 
 jobject
-Java_com_archos_medialib_AvosMediaMetadataRetriever_extractMetadata(JNIEnv *env, jobject thiz, jint keyCode)
+Java_org_leeroy_medialib_AvosMediaMetadataRetriever_extractMetadata(JNIEnv *env, jobject thiz, jint keyCode)
 {
     const char *str;
     avos_mr_t *mr = get_mr_or_throw(env, thiz);
@@ -179,7 +179,7 @@ Java_com_archos_medialib_AvosMediaMetadataRetriever_extractMetadata(JNIEnv *env,
 }
 
 jbyteArray
-Java_com_archos_medialib_AvosMediaMetadataRetriever_getMetadata(JNIEnv *env, jobject thiz)
+Java_org_leeroy_medialib_AvosMediaMetadataRetriever_getMetadata(JNIEnv *env, jobject thiz)
 {
     metadata_buffer_t *buffer = NULL;
     avos_mr_t *mr = get_mr_or_throw(env, thiz);
@@ -209,7 +209,7 @@ end:
 #define ANDROID_THUMB_WIDTH 512
 
 jobject
-Java_com_archos_medialib_AvosMediaMetadataRetriever_nativeGetFrameAtTime(JNIEnv *env, jobject thiz, jlong timeUs, jint option)
+Java_org_leeroy_medialib_AvosMediaMetadataRetriever_nativeGetFrameAtTime(JNIEnv *env, jobject thiz, jlong timeUs, jint option)
 {
     avos_bgra_bitmap_t *frame = NULL;
     avos_mr_t *mr = get_mr_or_throw(env, thiz);
@@ -264,7 +264,7 @@ Java_com_archos_medialib_AvosMediaMetadataRetriever_nativeGetFrameAtTime(JNIEnv 
 }
 
 jbyteArray
-Java_com_archos_medialib_AvosMediaMetadataRetriever_getEmbeddedPicture(JNIEnv *env, jobject thiz, jint pictureType)
+Java_org_leeroy_medialib_AvosMediaMetadataRetriever_getEmbeddedPicture(JNIEnv *env, jobject thiz, jint pictureType)
 {
     LOGV("getEmbeddedPicture: %d", pictureType);
     avos_mr_t *mr = get_mr_or_throw(env, thiz);

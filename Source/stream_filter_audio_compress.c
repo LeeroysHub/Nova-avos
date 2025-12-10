@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 
 /*
- * Audio Compression Filter for Nova Video Player
+ * Audio Compression Filter for LeeroyFlix
  *
  * This filter provides dynamic range compression for two main use cases:
  * 1. Audio Boost - General volume enhancement for quiet content

@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ typedef enum {
                                                 // streams to hardware codec
     AUDIO_OUTPUT_FLAG_NON_BLOCKING = 0x20, // use non-blocking write
     AUDIO_OUTPUT_FLAG_HW_AV_SYNC = 0x40, // output uses a hardware A/V synchronization source
-    AUDIO_OUTPUT_FLAG_DYNAMIC_RATE = 0x80, //ARCHOS GEN10 ENHANCEMENT
+    AUDIO_OUTPUT_FLAG_DYNAMIC_RATE = 0x80, //LeeroyFlix GEN10 ENHANCEMENT
     AUDIO_OUTPUT_FLAG_TTS = 0x80,          // output for streams transmitted through speaker
                                            // at a sample rate high enough to accommodate
                                            // lower-range ultrasonic playback

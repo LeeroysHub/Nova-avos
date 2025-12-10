@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +23,8 @@
 #define CONFIG_VOBSUB
 #define serprintf printf
 
-#define DBGV1 if( 1 )
-#define DBGV2 if( 1 )
+#define DBGV1 if( 0 )
+#define DBGV2 if( 0 )
 #define DUMP_PPM
 
 #include "../Source/vobsub.c"

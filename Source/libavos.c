@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,6 +48,7 @@ void device_config_set_audio_interface(int audio_interface);
 void device_config_set_output_sample_rate(int sample_rate);
 #ifdef CONFIG_ANDROID
 void set_android_sync(int enable);
+void set_raise_priority(int raise);
 #endif
 
 static pthread_t mainloop_thread;
@@ -200,6 +201,15 @@ void libavos_set_android_frame_timing(int enable)
 {
 #ifdef CONFIG_ANDROID
 	set_android_sync(enable);
+#else
+	(void)enable;
+#endif
+}
+
+void libavos_set_raise_priority(int enable)
+{
+#ifdef CONFIG_ANDROID
+	set_raise_priority(enable);
 #else
 	(void)enable;
 #endif

@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -182,7 +182,7 @@ static const VIDEO_FORMAT video_formats[] =
 	VIDEO_FOURCC_DIVX,	VIDEO_FORMAT_MPG4,	VIDEO_SUBFMT_NONE,	"MPEG-4",		
 	VIDEO_FOURCC_4GMC,	VIDEO_FORMAT_MPG4GMC,	VIDEO_SUBFMT_NONE,	"MPEG-4(GMC)",		
 
-	VIDEO_FOURCC_ARCHOS,	VIDEO_FORMAT_ARCHOS,	VIDEO_SUBFMT_NONE,	"ARCHOS",	
+	VIDEO_FOURCC_LeeroyFlix,	VIDEO_FORMAT_LeeroyFlix,	VIDEO_SUBFMT_NONE,	"LeeroyFlix",	
 	VIDEO_FOURCC_YUV,	VIDEO_FORMAT_YUV,	VIDEO_SUBFMT_NONE,	"YUV",		
 	VIDEO_FOURCC_SPARK,	VIDEO_FORMAT_SPARK,	VIDEO_SUBFMT_NONE,	"Spark",		
 

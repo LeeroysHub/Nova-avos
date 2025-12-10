@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Archos SA
+ * Copyright 2017 LeeroyFlix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@
 #include <stddef.h>
 
 #ifdef CONFIG_MEDIACENTER
-#define SERVER  "/data/data/com.archos.mediacenter.videoti/files/avsh.sock"
-#define CLIENT  "/data/data/com.archos.mediacenter.videoti/files/avshclient.sock"
+#define SERVER  "/data/data/org.leeroy.media.video/files/avsh.sock"
+#define CLIENT  "/data/data/org.leeroy.media.video/files/avshclient.sock"
 #else
 #define SERVER  "/tmp/avshsocket"
 #define CLIENT  "/tmp/mysocket"
@@ -104,7 +104,7 @@ int main( int argc, char **argv )
 	if ( sendto( sock, "ping", strlen("ping") +1 , 0, ( struct sockaddr * ) &name, size ) < 0 ) {
 		printf("launching MediaCenter...\n");
 		// start MediaCenter process and init libavos
-		system("am broadcast -a com.archos.mediacenter.DEBUG");
+		system("am broadcast -a org.leeroy.mediaplayer.DEBUG");
 	}
 #endif
 
